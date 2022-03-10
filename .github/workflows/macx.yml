@@ -27,7 +27,9 @@ jobs:
       - uses: jurplel/install-qt-action@v2
       - run: brew install libomp
 
-      - run: qmake TRSE.pro
+      - run: |
+          echo "VERSION = '${{ steps.version.outputs.TRSE_VERSION }}'" >> TRSE.pro
+          qmake TRSE.pro
       - run: make -j 3
 
       - run: cd Publish/publish_mac && ./publish_mac.sh nightly
