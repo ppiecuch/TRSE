@@ -33,8 +33,8 @@ jobs:
           qmake TRSE.pro
       - run: |
           make -j 3
-          /usr/libexec/PlistBuddy -c "Set :NOTE 'Turbo Rascal Syntax Error IDE'"
-          /usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string ${{ steps.version.outputs.TRSE_VERSION }}"
+          /usr/libexec/PlistBuddy -c "Set :NOTE 'Turbo Rascal Syntax Error IDE'" trse.app/Contents/Info.plist
+          /usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string ${{ steps.version.outputs.TRSE_VERSION }}" trse.app/Contents/Info.plist
 
       # https://github.com/marketplace/actions/create-update-release-and-upload-assets
 
